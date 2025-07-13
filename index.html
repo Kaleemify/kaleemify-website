@@ -1,11 +1,1860 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaleemify</title>
+    <title>Kaleemify - Professional Website Development & Digital Marketing Services in Pakistan</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="logo.webp" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", Arial, Helvetica, sans-serif;
+        }
+
+        :root {
+            --theme: #055fe6;
+            --dark-bg: #000725;
+            --card-bg: #003b946e;
+            --purple-bg: #11004e;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .bg-theme {
+            background-color: var(--theme);
+        }
+
+        .text-theme {
+            color: var(--theme);
+        }
+
+        .border-theme {
+            border-color: var(--theme);
+        }
+
+        .bg-card {
+            background-color: var(--card-bg);
+        }
+
+        .bg-purple {
+            background-color: var(--purple-bg);
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .animate-pulse-custom {
+            animation: pulse-custom 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-custom {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #055fe6, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(5, 95, 230, 0.3);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .typing-effect {
+            overflow: hidden;
+            border-right: 3px solid var(--theme);
+            white-space: nowrap;
+            animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: var(--theme)
+            }
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--theme), #0066ff);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(5, 95, 230, 0.4);
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border: 1px solid var(--theme);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 80px;
+            color: var(--theme);
+            opacity: 0.3;
+        }
+
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--theme);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--theme);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid var(--theme);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--theme);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--theme);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--theme);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(5, 95, 230, 0.1);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 20px 20px;
+        }
+
+        .process-step {
+            position: relative;
+            padding-left: 80px;
+        }
+
+        .process-step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--theme);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.5rem;
+        }
+
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--card-bg);
+            border: 1px solid var(--theme);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+            color: var(--theme);
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 40px 0;
+            }
+
+            .stats-counter {
+                font-size: 2rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <center><h1 style="font-family: Arial, Helvetica, sans-serif;">Kaleemullah is working on their own company's Kaleemify Website</h1></center>
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/923311467682" target="_blank"
+            class="bg-green-500 text-white p-4 rounded-full text-2xl hover:bg-green-600 transition-colors duration-300">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="Logo.webp" alt="Kaleemify Logo" class="h-10 w-auto">
+                    <span class="ml-2 text-xl font-bold text-theme">Kaleemify</span>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-white hover:text-theme transition-colors duration-300">Home</a>
+                        <a href="#services"
+                            class="text-white hover:text-theme transition-colors duration-300">Services</a>
+                        <a href="#portfolio"
+                            class="text-white hover:text-theme transition-colors duration-300">Portfolio</a>
+                        <a href="#pricing"
+                            class="text-white hover:text-theme transition-colors duration-300">Pricing</a>
+                        <a href="#testimonials"
+                            class="text-white hover:text-theme transition-colors duration-300">Reviews</a>
+                        <a href="#contact"
+                            class="text-white hover:text-theme transition-colors duration-300">Contact</a>
+                        <a href="https://wa.me/923311467682" class="cta-button">Get Started</a>
+                    </div>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:text-theme">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="mobile-menu md:hidden fixed top-0 right-0 w-64 h-full bg-dark-bg bg-opacity-95 backdrop-blur-md">
+            <div class="p-6">
+                <button id="mobile-menu-close" class="text-white text-2xl float-right">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="mt-16 space-y-6">
+                    <a href="#home" class="block text-white hover:text-theme transition-colors duration-300">Home</a>
+                    <a href="#services"
+                        class="block text-white hover:text-theme transition-colors duration-300">Services</a>
+                    <a href="#portfolio"
+                        class="block text-white hover:text-theme transition-colors duration-300">Portfolio</a>
+                    <a href="#pricing"
+                        class="block text-white hover:text-theme transition-colors duration-300">Pricing</a>
+                    <a href="#testimonials"
+                        class="block text-white hover:text-theme transition-colors duration-300">Reviews</a>
+                    <a href="#contact"
+                        class="block text-white hover:text-theme transition-colors duration-300">Contact</a>
+                    <a href="https://wa.me/923311467682" class="cta-button block text-center mt-8">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="section-padding pt-32 min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <p class="text-theme text-lg mb-4">Pakistan's Leading Digital Agency</p>
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                        We Design <span class="gradient-text">Professional Websites</span> & Grow Your Business
+                    </h1>
+                    <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                        Kaleemify transforms your business with cutting-edge websites, powerful digital marketing, and
+                        innovative solutions. Join 500+ satisfied clients across Pakistan who trust us for their digital
+                        success.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="https://wa.me/923311467682" class="cta-button text-center">
+                            <i class="fab fa-whatsapp mr-2"></i>Start Your Project
+                        </a>
+                        <a href="tel:+923311467682"
+                            class="border-2 border-theme text-theme px-8 py-3 rounded-full font-semibold hover:bg-theme hover:text-white transition-all duration-300">
+                            <i class="fas fa-phone mr-2"></i>Call Now
+                        </a>
+                    </div>
+                    <div class="flex justify-center lg:justify-start mt-8 space-x-8">
+                        <div class="text-center">
+                            <div class="stats-counter">500+</div>
+                            <p class="text-gray-400">Happy Clients</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="stats-counter">3+</div>
+                            <p class="text-gray-400">Years Experience</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="stats-counter">24/7</div>
+                            <p class="text-gray-400">Support</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <img src="assets/hero.webp" alt="Professional Website Development"
+                        class="w-full max-w-md mx-auto animate-float rounded-3xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="py-16 bg-purple">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="hover-scale">
+                    <i class="fas fa-shield-alt text-4xl text-theme mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">100% Secure</h3>
+                    <p class="text-gray-400">SSL Certified & Protected</p>
+                </div>
+                <div class="hover-scale">
+                    <i class="fas fa-rocket text-4xl text-theme mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Fast Delivery</h3>
+                    <p class="text-gray-400">7-14 Days Completion</p>
+                </div>
+                <div class="hover-scale">
+                    <i class="fas fa-headset text-4xl text-theme mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">24/7 Support</h3>
+                    <p class="text-gray-400">Always Here to Help</p>
+                </div>
+                <div class="hover-scale">
+                    <i class="fas fa-medal text-4xl text-theme mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Quality Guaranteed</h3>
+                    <p class="text-gray-400">100% Satisfaction Promise</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Our <span class="text-theme">Premium Services</span>
+                </h2>
+                <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+                    From stunning websites to powerful digital marketing campaigns, we provide comprehensive solutions
+                    to grow your business online.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-card border border-theme rounded-3xl p-8 hover-scale text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-code text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Website Development</h3>
+                    <p class="text-gray-300 mb-6">Custom, responsive websites that convert visitors into customers.
+                        Built with latest technologies.</p>
+                    <ul class="text-left space-y-2 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Responsive Design</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>SEO Optimized</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Fast Loading</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Mobile Friendly</li>
+                    </ul>
+                    <a href="https://wa.me/923311467682" class="cta-button">Get Quote</a>
+                </div>
+
+                <div class="bg-card border border-theme rounded-3xl p-8 hover-scale text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Digital Marketing</h3>
+                    <p class="text-gray-300 mb-6">Comprehensive digital marketing strategies to boost your online
+                        presence and sales.</p>
+                    <ul class="text-left space-y-2 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Social Media Marketing
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Google Ads</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Facebook Ads</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Content Marketing</li>
+                    </ul>
+                    <a href="https://wa.me/923311467682" class="cta-button">Get Quote</a>
+                </div>
+
+                <div class="bg-card border border-theme rounded-3xl p-8 hover-scale text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-search text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">SEO Optimization</h3>
+                    <p class="text-gray-300 mb-6">Improve your website's search engine ranking and get more organic
+                        traffic.</p>
+                    <ul class="text-left space-y-2 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Keyword Research</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>On-Page SEO</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Technical SEO</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Local SEO</li>
+                    </ul>
+                    <a href="https://wa.me/923311467682" class="cta-button">Get Quote</a>
+                </div>
+
+                <div class="bg-card border border-theme rounded-3xl p-8 hover-scale text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-palette text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Graphic Design</h3>
+                    <p class="text-gray-300 mb-6">Professional graphic design services for your brand identity and
+                        marketing materials.</p>
+                    <ul class="text-left space-y-2 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Logo Design</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Brand Identity</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Print Design</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Social Media Graphics
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/923311467682" class="cta-button">Get Quote</a>
+                </div>
+
+                <div class="bg-card border border-theme rounded-3xl p-8 hover-scale text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-video text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Video Editing</h3>
+                    <p class="text-gray-300 mb-6">Professional video editing services for your marketing campaigns and
+                        content.</p>
+                    <ul class="text-left space-y-2 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Promotional Videos
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Social Media Videos
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Product Videos</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Animation</li>
+                    </ul>
+                    <a href="https://wa.me/923311467682" class="cta-button">Get Quote</a>
+                </div>
+
+                <div class="bg-card border border-theme rounded-3xl p-8 hover-scale text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Mobile App Development</h3>
+                    <p class="text-gray-300 mb-6">Custom mobile applications for iOS and Android platforms to expand
+                        your reach.</p>
+                    <ul class="text-left space-y-2 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>iOS Apps</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Android Apps</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Cross-Platform</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>App Store Optimization
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/923311467682" class="cta-button">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section-padding bg-purple">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Why Choose <span
+                            class="text-theme">Kaleemify?</span></h2>
+                    <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                        We're not just another web development company. We're your digital growth partners, committed to
+                        delivering exceptional results that drive your business forward.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-theme rounded-full flex items-center justify-center">
+                                <i class="fas fa-lightning-bolt text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Lightning Fast Delivery</h3>
+                                <p class="text-gray-400">We deliver projects 2x faster than competitors without
+                                    compromising quality.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-theme rounded-full flex items-center justify-center">
+                                <i class="fas fa-users text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Dedicated Team</h3>
+                                <p class="text-gray-400">Expert developers, designers, and marketers working exclusively
+                                    on your project.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-theme rounded-full flex items-center justify-center">
+                                <i class="fas fa-heart text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Pakistani Expertise</h3>
+                                <p class="text-gray-400">Local market knowledge with international quality standards.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <a href="https://wa.me/923311467682" class="cta-button">
+                            <i class="fab fa-whatsapp mr-2"></i>Discuss Your Project
+                        </a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-card border border-theme rounded-2xl p-6 text-center hover-scale">
+                        <div class="text-3xl font-bold text-theme mb-2">500+</div>
+                        <p class="text-gray-400">Projects Completed</p>
+                    </div>
+                    <div class="bg-card border border-theme rounded-2xl p-6 text-center hover-scale">
+                        <div class="text-3xl font-bold text-theme mb-2">98%</div>
+                        <p class="text-gray-400">Client Satisfaction</p>
+                    </div>
+                    <div class="bg-card border border-theme rounded-2xl p-6 text-center hover-scale">
+                        <div class="text-3xl font-bold text-theme mb-2">24/7</div>
+                        <p class="text-gray-400">Support Available</p>
+                    </div>
+                    <div class="bg-card border border-theme rounded-2xl p-6 text-center hover-scale">
+                        <div class="text-3xl font-bold text-theme mb-2">3+</div>
+                        <p class="text-gray-400">Years Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Our <span class="text-theme">Portfolio</span></h2>
+                <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+                    Check out our recent projects and see how we've helped businesses across Pakistan achieve their
+                    digital goals.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="portfolio-item">
+                    <h3 class="text-xl font-bold mb-2">1dayformation.com</h3>
+                    <p class="text-gray-300 mb-4">Business Formation Services</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-blue-400">E-commerce</span>
+                        <a href="https://1dayformation.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <h3 class="text-xl font-bold mb-2">primellcservices.com</h3>
+                    <p class="text-gray-300 mb-4">LLC Services Platform</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-green-400">Corporate</span>
+                        <a href="https://primellcservices.com" target="_blank"
+                            class="text-blue-400 hover:text-blue-300">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <h3 class="text-xl font-bold mb-2">Zefiler</h3>
+                    <p class="text-gray-300 mb-4">File Management System</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-purple-400">SaaS</span>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <h3 class="text-xl font-bold mb-2">handyguys.ae</h3>
+                    <p class="text-gray-300 mb-4">Handyman Services UAE</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-yellow-400">Services</span>
+                        <a href="https://handyguys.ae" target="_blank" class="text-blue-400 hover:text-blue-300">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <h3 class="text-xl font-bold mb-2">quickfillingllc.com</h3>
+                    <p class="text-gray-300 mb-4">Quick Business Filing</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-red-400">Legal</span>
+                        <a href="https://quickfillingllc.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <h3 class="text-xl font-bold mb-2">blinksconsultants.com</h3>
+                    <p class="text-gray-300 mb-4">Business Consultancy</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-blue-400">Consulting</span>
+                        <a href="https://blinksconsultants.com" target="_blank"
+                            class="text-blue-400 hover:text-blue-300">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <h3 class="text-xl font-bold mb-2">wearers.pk</h3>
+                    <p class="text-gray-300 mb-4">Fashion E-commerce</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-pink-400">E-commerce</span>
+                        <a href="https://wearers.pk" target="_blank" class="text-blue-400 hover:text-blue-300">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <h3 class="text-xl font-bold mb-2">makanfinder.com</h3>
+                    <p class="text-gray-300 mb-4">Property Platform</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-green-400">Real Estate</span>
+                        <a href="https://makanfinder.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://wa.me/923311467682" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Want Your Website Here?
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Portfolio Sites -->
+    <section class="py-16 bg-purple">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">More <span class="text-theme">Successful Projects</span></h2>
+                <p class="text-gray-300">Trusted by businesses across Pakistan and internationally</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">techsolutions.pk</div>
+                    <div class="text-xs text-gray-400">Technology</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">freshfood.com.pk</div>
+                    <div class="text-xs text-gray-400">Food Delivery</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">beautysalon.pk</div>
+                    <div class="text-xs text-gray-400">Beauty Services</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">autoparts.pk</div>
+                    <div class="text-xs text-gray-400">Auto Parts</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">medicalcenter.pk</div>
+                    <div class="text-xs text-gray-400">Healthcare</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">educationhub.pk</div>
+                    <div class="text-xs text-gray-400">Education</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">realestate.pk</div>
+                    <div class="text-xs text-gray-400">Real Estate</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">fashionstore.pk</div>
+                    <div class="text-xs text-gray-400">Fashion</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">travelagency.pk</div>
+                    <div class="text-xs text-gray-400">Travel</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">restaurant.pk</div>
+                    <div class="text-xs text-gray-400">Restaurant</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">fitnessclub.pk</div>
+                    <div class="text-xs text-gray-400">Fitness</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">photography.pk</div>
+                    <div class="text-xs text-gray-400">Photography</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">lawfirm.pk</div>
+                    <div class="text-xs text-gray-400">Legal Services</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">consulting.pk</div>
+                    <div class="text-xs text-gray-400">Consulting</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">electronics.pk</div>
+                    <div class="text-xs text-gray-400">Electronics</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">homestay.pk</div>
+                    <div class="text-xs text-gray-400">Hospitality</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">craftstore.pk</div>
+                    <div class="text-xs text-gray-400">Handicrafts</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">eventplanner.pk</div>
+                    <div class="text-xs text-gray-400">Events</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">bookstore.pk</div>
+                    <div class="text-xs text-gray-400">Books</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">pharmacy.pk</div>
+                    <div class="text-xs text-gray-400">Pharmacy</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">gardenstore.pk</div>
+                    <div class="text-xs text-gray-400">Gardening</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">musicstore.pk</div>
+                    <div class="text-xs text-gray-400">Music</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">carpetstore.pk</div>
+                    <div class="text-xs text-gray-400">Carpets</div>
+                </div>
+                <div class="bg-card border border-theme rounded-lg p-4 text-center hover-scale">
+                    <div class="text-sm font-semibold">jewelrystore.pk</div>
+                    <div class="text-xs text-gray-400">Jewelry</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Our <span class="text-theme">Process</span></h2>
+                <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+                    We follow a proven process to ensure your project is delivered on time, within budget, and exceeds
+                    your expectations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="process-step" data-step="1">
+                    <h3 class="text-xl font-semibold mb-4">Discovery & Planning</h3>
+                    <p class="text-gray-400">We start by understanding your business goals, target audience, and
+                        requirements to create a detailed project plan.</p>
+                </div>
+                <div class="process-step" data-step="2">
+                    <h3 class="text-xl font-semibold mb-4">Design & Development</h3>
+                    <p class="text-gray-400">Our expert team creates stunning designs and develops robust, scalable
+                        solutions using latest technologies.</p>
+                </div>
+                <div class="process-step" data-step="3">
+                    <h3 class="text-xl font-semibold mb-4">Testing & Optimization</h3>
+                    <p class="text-gray-400">Rigorous testing ensures your website works perfectly across all devices
+                        and browsers before launch.</p>
+                </div>
+                <div class="process-step" data-step="4">
+                    <h3 class="text-xl font-semibold mb-4">Launch & Support</h3>
+                    <p class="text-gray-400">We launch your project and provide ongoing support to ensure your continued
+                        success online.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section-padding bg-purple">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Transparent <span class="text-theme">Pricing</span></h2>
+                <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+                    Choose the perfect package for your business needs. No hidden fees, no surprises - just exceptional
+                    value.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="pricing-card">
+                    <h3 class="text-2xl font-bold mb-4">Basic Website</h3>
+                    <div class="text-4xl font-bold text-theme mb-6">₨25,000</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>5 Pages Website</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Responsive Design</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Basic SEO</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Contact Form</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>1 Month Support</li>
+                    </ul>
+                    <a href="https://wa.me/923311467682" class="cta-button w-full text-center">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3 class="text-2xl font-bold mb-4">Business Website</h3>
+                    <div class="text-4xl font-bold text-theme mb-6">₨45,000</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>10 Pages Website</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Premium Design</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Advanced SEO</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Blog Section</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Social Media
+                            Integration</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>3 Months Support</li>
+                    </ul>
+                    <a href="https://wa.me/923311467682" class="cta-button w-full text-center">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="text-2xl font-bold mb-4">E-commerce Store</h3>
+                    <div class="text-4xl font-bold text-theme mb-6">₨75,000</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Full E-commerce</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Payment Gateway</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Product Management
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Order Management</li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>Customer Dashboard
+                        </li>
+                        <li class="flex items-center"><i class="fas fa-check text-theme mr-2"></i>6 Months Support</li>
+                    </ul>
+                    <a href="https://wa.me/923311467682" class="cta-button w-full text-center">Get Started</a>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-gray-300 mb-6">Need something custom? We'll create a tailored solution for your specific
+                    needs.</p>
+                <a href="https://wa.me/923311467682" class="cta-button">
+                    <i class="fab fa-whatsapp mr-2"></i>Get Custom Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Technologies We <span class="text-theme">Master</span>
+                </h2>
+                <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+                    We use cutting-edge technologies to build fast, secure, and scalable solutions for your business.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <div class="text-center hover-scale">
+                    <div class="tech-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3 class="font-semibold">HTML5</h3>
+                </div>
+                <div class="text-center hover-scale">
+                    <div class="tech-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h3 class="font-semibold">CSS3</h3>
+                </div>
+                <div class="text-center hover-scale">
+                    <div class="tech-icon">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <h3 class="font-semibold">JavaScript</h3>
+                </div>
+                <div class="text-center hover-scale">
+                    <div class="tech-icon">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <h3 class="font-semibold">React</h3>
+                </div>
+                <div class="text-center hover-scale">
+                    <div class="tech-icon">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <h3 class="font-semibold">Node.js</h3>
+                </div>
+                <div class="text-center hover-scale">
+                    <div class="tech-icon">
+                        <i class="fab fa-php"></i>
+                    </div>
+                    <h3 class="font-semibold">PHP</h3>
+                </div>
+                <div class="text-center hover-scale">
+                    <div class="tech-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3 class="font-semibold">Python</h3>
+                </div>
+                <div class="text-center hover-scale">
+                    <div class="tech-icon">
+                        <i class="fab fa-wordpress"></i>
+                    </div>
+                    <h3 class="font-semibold">WordPress</h3>
+                </div>
+                <div class="text-center hover-scale">
+                    <div class="tech-icon">
+                        <i class="fab fa-shopify"></i>
+                    </div>
+                    <h3 class="font-semibold">Shopify</h3>
+                </div>
+                <div class="text-center hover-scale">
+                    <div class="tech-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <h3 class="font-semibold">AWS</h3>
+                </div>
+                <div class="text-center hover-scale">
+                    <div class="tech-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3 class="font-semibold">Google Cloud</h3>
+                </div>
+                <div class="text-center hover-scale">
+                    <div class="tech-icon">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <h3 class="font-semibold">Docker</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="section-padding bg-purple">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Industries We <span class="text-theme">Serve</span></h2>
+                <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+                    From startups to enterprises, we've helped businesses across various industries achieve digital
+                    success.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-card border border-theme rounded-2xl p-6 text-center hover-scale">
+                    <i class="fas fa-shopping-cart text-4xl text-theme mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">E-commerce</h3>
+                    <p class="text-gray-400">Online stores and marketplaces</p>
+                </div>
+                <div class="bg-card border border-theme rounded-2xl p-6 text-center hover-scale">
+                    <i class="fas fa-heartbeat text-4xl text-theme mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Healthcare</h3>
+                    <p class="text-gray-400">Medical websites and portals</p>
+                </div>
+                <div class="bg-card border border-theme rounded-2xl p-6 text-center hover-scale">
+                    <i class="fas fa-graduation-cap text-4xl text-theme mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Education</h3>
+                    <p class="text-gray-400">Schools and learning platforms</p>
+                </div>
+                <div class="bg-card border border-theme rounded-2xl p-6 text-center hover-scale">
+                    <i class="fas fa-home text-4xl text-theme mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Real Estate</h3>
+                    <p class="text-gray-400">Property listings and agents</p>
+                </div>
+                <div class="bg-card border border-theme rounded-2xl p-6 text-center hover-scale">
+                    <i class="fas fa-utensils text-4xl text-theme mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Food & Beverage</h3>
+                    <p class="text-gray-400">Restaurants and delivery apps</p>
+                </div>
+                <div class="bg-card border border-theme rounded-2xl p-6 text-center hover-scale">
+                    <i class="fas fa-tshirt text-4xl text-theme mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Fashion</h3>
+                    <p class="text-gray-400">Clothing and accessories</p>
+                </div>
+                <div class="bg-card border border-theme rounded-2xl p-6 text-center hover-scale">
+                    <i class="fas fa-car text-4xl text-theme mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Automotive</h3>
+                    <p class="text-gray-400">Car dealerships and services</p>
+                </div>
+                <div class="bg-card border border-theme rounded-2xl p-6 text-center hover-scale">
+                    <i class="fas fa-briefcase text-4xl text-theme mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Professional Services</h3>
+                    <p class="text-gray-400">Law firms and consultants</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Meet Our <span class="text-theme">Expert Team</span>
+                </h2>
+                <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+                    Our skilled professionals are passionate about creating exceptional digital experiences for your
+                    business.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-card border border-theme rounded-3xl p-8 text-center hover-scale">
+                    <div class="w-24 h-24 bg-theme rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-user text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Kaleemullah Zeeshan</h3>
+                    <p class="text-theme mb-4">CEO & Founder</p>
+                    <p class="text-gray-400">Full-stack developer with 3+ years of experience in building scalable web
+                        applications.</p>
+                </div>
+                <div class="bg-card border border-theme rounded-3xl p-8 text-center hover-scale">
+                    <div class="w-24 h-24 bg-theme rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-user text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Rehan</h3>
+                    <p class="text-theme mb-4">Lead Developer</p>
+                    <p class="text-gray-400">Expert in React, Node.js, and modern web technologies with passion for
+                        clean code.</p>
+                </div>
+                <div class="bg-card border border-theme rounded-3xl p-8 text-center hover-scale">
+                    <div class="w-24 h-24 bg-theme rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-user text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Fatima Khan</h3>
+                    <p class="text-theme mb-4">UI/UX Designer</p>
+                    <p class="text-gray-400">Creative designer specializing in user-centered design and brand identity.
+                    </p>
+                </div>
+                <div class="bg-card border border-theme rounded-3xl p-8 text-center hover-scale">
+                    <div class="w-24 h-24 bg-theme rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-user text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Ali Raza</h3>
+                    <p class="text-theme mb-4">Digital Marketing Specialist</p>
+                    <p class="text-gray-400">SEO and digital marketing expert helping businesses grow their online
+                        presence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section-padding bg-purple">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Our <span class="text-theme">Achievements</span></h2>
+                <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+                    Numbers that speak for our commitment to excellence and client satisfaction.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="stats-counter" data-count="500">500+</div>
+                    <h3 class="text-xl font-semibold mb-2 text-theme">Projects Completed</h3>
+                    <p class="text-gray-400">Successfully delivered across Pakistan</p>
+                </div>
+                <div class="text-center">
+                    <div class="stats-counter" data-count="98">98%</div>
+                    <h3 class="text-xl font-semibold mb-2 text-theme">Client Satisfaction</h3>
+                    <p class="text-gray-400">Happy clients who trust our services</p>
+                </div>
+                <div class="text-center">
+                    <div class="stats-counter" data-count="24">24/7</div>
+                    <h3 class="text-xl font-semibold mb-2 text-theme">Support Available</h3>
+                    <p class="text-gray-400">Round-the-clock technical support</p>
+                </div>
+                <div class="text-center">
+                    <div class="stats-counter" data-count="3">3+</div>
+                    <h3 class="text-xl font-semibold mb-2 text-theme">Years of Experience</h3>
+                    <p class="text-gray-400">Building digital solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">What Our <span class="text-theme">Clients Say</span>
+                </h2>
+                <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+                    Don't just take our word for it. Here's what our satisfied clients from across Pakistan have to say.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-theme rounded-full flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">AA</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Atif Ali</h4>
+                            <p class="text-gray-400">CEO, TechSolutions Lahore</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-4">
+                        <span class="text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Kaleemify delivered an exceptional website for our business. The team was professional,
+                        responsive, and understood our requirements perfectly. Highly recommended!"
+                    </p>
+                </div>
+
+                <div class="testimonial-card hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-theme rounded-full flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">KS</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Khurram Siddique</h4>
+                            <p class="text-gray-400">Owner, Fashion Hub Karachi</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-4">
+                        <span class="text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Outstanding service! They built our e-commerce store from scratch and it's performing
+                        excellently. Sales increased by 300% in just 3 months."
+                    </p>
+                </div>
+
+                <div class="testimonial-card hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-theme rounded-full flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">SK</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Seher Khan</h4>
+                            <p class="text-gray-400">Director, Medical Center Islamabad</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-4">
+                        <span class="text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Professional team with excellent communication. They delivered our healthcare website on time
+                        and within budget. Patients love the online booking system!"
+                    </p>
+                </div>
+
+                <div class="testimonial-card hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-theme rounded-full flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">MH</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Muhammad Hassan</h4>
+                            <p class="text-gray-400">Owner, Restaurant Chain Faisalabad</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-4">
+                        <span class="text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Kaleemify transformed our business with their digital marketing services. Online orders
+                        increased by 250% and we're now the top restaurant in our area."
+                    </p>
+                </div>
+
+                <div class="testimonial-card hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-theme rounded-full flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">AR</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Ayesha Rizwan</h4>
+                            <p class="text-gray-400">Principal, Educational Institute Multan</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-4">
+                        <span class="text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Excellent work on our school management system. The online admission process and parent portal
+                        have made everything so much easier. Great job!"
+                    </p>
+                </div>
+
+                <div class="testimonial-card hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-theme rounded-full flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">FA</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Farrukh Ahmed</h4>
+                            <p class="text-gray-400">Manager, Real Estate Company Rawalpindi</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-4">
+                        <span class="text-yellow-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "The property listing website they built for us is fantastic. Clean design, easy navigation, and
+                        excellent search functionality. Our leads have tripled!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantees Section -->
+    <section class="section-padding bg-purple">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Our <span class="text-theme">Guarantees</span></h2>
+                <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+                    We stand behind our work with iron-clad guarantees that give you complete peace of mind.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-card border border-theme rounded-3xl p-8 text-center hover-scale">
+                    <i class="fas fa-clock text-4xl text-theme mb-6"></i>
+                    <h3 class="text-xl font-semibold mb-4">On-Time Delivery</h3>
+                    <p class="text-gray-300">Your project will be delivered exactly when promised, or you get
+                        compensation.</p>
+                </div>
+                <div class="bg-card border border-theme rounded-3xl p-8 text-center hover-scale">
+                    <i class="fas fa-thumbs-up text-4xl text-theme mb-6"></i>
+                    <h3 class="text-xl font-semibold mb-4">100% Satisfaction</h3>
+                    <p class="text-gray-300">We'll work until you're completely satisfied with the results, guaranteed.
+                    </p>
+                </div>
+                <div class="bg-card border border-theme rounded-3xl p-8 text-center hover-scale">
+                    <i class="fas fa-shield-alt text-4xl text-theme mb-6"></i>
+                    <h3 class="text-xl font-semibold mb-4">Security Promise</h3>
+                    <p class="text-gray-300">Your website will be secure and protected with SSL certificates and regular
+                        backups.</p>
+                </div>
+                <div class="bg-card border border-theme rounded-3xl p-8 text-center hover-scale">
+                    <i class="fas fa-mobile-alt text-4xl text-theme mb-6"></i>
+                    <h3 class="text-xl font-semibold mb-4">Mobile Responsive</h3>
+                    <p class="text-gray-300">Your website will work perfectly on all devices and screen sizes.</p>
+                </div>
+                <div class="bg-card border border-theme rounded-3xl p-8 text-center hover-scale">
+                    <i class="fas fa-headset text-4xl text-theme mb-6"></i>
+                    <h3 class="text-xl font-semibold mb-4">Lifetime Support</h3>
+                    <p class="text-gray-300">We provide ongoing support and maintenance to keep your website running
+                        smoothly.</p>
+                </div>
+                <div class="bg-card border border-theme rounded-3xl p-8 text-center hover-scale">
+                    <i class="fas fa-dollar-sign text-4xl text-theme mb-6"></i>
+                    <h3 class="text-xl font-semibold mb-4">Money Back</h3>
+                    <p class="text-gray-300">If you're not satisfied within 30 days, we'll refund your money completely.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Frequently Asked <span
+                        class="text-theme">Questions</span></h2>
+                <p class="text-gray-300 text-lg">
+                    Got questions? We've got answers. Here are the most common questions our clients ask.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="font-semibold text-lg">How long does it take to build a website?</h3>
+                        <i class="fas fa-chevron-down text-theme transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-300">Typically, a basic website takes 7-14 days, while more complex projects
+                            like e-commerce stores can take 3-6 weeks. We'll provide you with a detailed timeline during
+                            our initial consultation.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="font-semibold text-lg">Do you provide hosting and domain services?</h3>
+                        <i class="fas fa-chevron-down text-theme transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-300">Yes, we can help you with domain registration and hosting setup. We
+                            work with reliable hosting providers to ensure your website runs smoothly and securely.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="font-semibold text-lg">Will my website be mobile-friendly?</h3>
+                        <i class="fas fa-chevron-down text-theme transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-300">Absolutely! All our websites are built with responsive design, ensuring
+                            they work perfectly on all devices including smartphones, tablets, and desktops.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="font-semibold text-lg">Do you offer SEO services?</h3>
+                        <i class="fas fa-chevron-down text-theme transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-300">Yes, we provide comprehensive SEO services including keyword research,
+                            on-page optimization, technical SEO, and ongoing SEO maintenance to help your website rank
+                            higher in search engines.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="font-semibold text-lg">Can you help with digital marketing?</h3>
+                        <i class="fas fa-chevron-down text-theme transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-300">Definitely! We offer complete digital marketing services including
+                            social media marketing, Google Ads, Facebook Ads, content marketing, and email marketing to
+                            grow your online presence.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="font-semibold text-lg">What payment methods do you accept?</h3>
+                        <i class="fas fa-chevron-down text-theme transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-300">We accept various payment methods including bank transfers, JazzCash,
+                            Easypaisa, and international payments through PayPal. We also offer flexible payment plans
+                            for larger projects.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="font-semibold text-lg">Do you provide ongoing support after the website is live?</h3>
+                        <i class="fas fa-chevron-down text-theme transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-300">Yes, we provide ongoing support and maintenance services. Our packages
+                            include regular updates, security monitoring, backups, and technical support to keep your
+                            website running smoothly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Presence Section -->
+    <section class="section-padding bg-purple">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Serving <span class="text-theme">All Pakistan</span>
+                </h2>
+                <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+                    We're a Pakistani company proudly serving businesses across all major cities with local expertise
+                    and international standards.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <div class="text-center">
+                    <i class="fas fa-map-marker-alt text-3xl text-theme mb-4"></i>
+                    <h3 class="font-semibold">Lahore</h3>
+                    <p class="text-gray-400 text-sm">Punjab</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-map-marker-alt text-3xl text-theme mb-4"></i>
+                    <h3 class="font-semibold">Karachi</h3>
+                    <p class="text-gray-400 text-sm">Sindh</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-map-marker-alt text-3xl text-theme mb-4"></i>
+                    <h3 class="font-semibold">Islamabad</h3>
+                    <p class="text-gray-400 text-sm">Capital</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-map-marker-alt text-3xl text-theme mb-4"></i>
+                    <h3 class="font-semibold">Rawalpindi</h3>
+                    <p class="text-gray-400 text-sm">Punjab</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-map-marker-alt text-3xl text-theme mb-4"></i>
+                    <h3 class="font-semibold">Faisalabad</h3>
+                    <p class="text-gray-400 text-sm">Punjab</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-map-marker-alt text-3xl text-theme mb-4"></i>
+                    <h3 class="font-semibold">Multan</h3>
+                    <p class="text-gray-400 text-sm">Punjab</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-map-marker-alt text-3xl text-theme mb-4"></i>
+                    <h3 class="font-semibold">Peshawar</h3>
+                    <p class="text-gray-400 text-sm">KPK</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-map-marker-alt text-3xl text-theme mb-4"></i>
+                    <h3 class="font-semibold">Quetta</h3>
+                    <p class="text-gray-400 text-sm">Balochistan</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-map-marker-alt text-3xl text-theme mb-4"></i>
+                    <h3 class="font-semibold">Gujranwala</h3>
+                    <p class="text-gray-400 text-sm">Punjab</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-map-marker-alt text-3xl text-theme mb-4"></i>
+                    <h3 class="font-semibold">Sialkot</h3>
+                    <p class="text-gray-400 text-sm">Punjab</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-map-marker-alt text-3xl text-theme mb-4"></i>
+                    <h3 class="font-semibold">Hyderabad</h3>
+                    <p class="text-gray-400 text-sm">Sindh</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-map-marker-alt text-3xl text-theme mb-4"></i>
+                    <h3 class="font-semibold">All Cities</h3>
+                    <p class="text-gray-400 text-sm">Pakistan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Success <span class="text-theme">Stories</span></h2>
+                <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+                    Real results from real businesses. See how we've helped our clients achieve remarkable growth.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-card border border-theme rounded-3xl p-8 hover-scale">
+                    <div class="text-center mb-6">
+                        <div class="text-4xl font-bold text-theme mb-2">300%</div>
+                        <p class="text-gray-400">Sales Increase</p>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Fashion E-commerce Store</h3>
+                    <p class="text-gray-300">We built a complete e-commerce solution for a Karachi-based fashion brand.
+                        Within 3 months, their online sales increased by 300%.</p>
+                </div>
+
+                <div class="bg-card border border-theme rounded-3xl p-8 hover-scale">
+                    <div class="text-center mb-6">
+                        <div class="text-4xl font-bold text-theme mb-2">500%</div>
+                        <p class="text-gray-400">Traffic Growth</p>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Medical Practice Website</h3>
+                    <p class="text-gray-300">Our SEO optimization helped a medical practice in Lahore increase their
+                        website traffic by 500% and double their patient bookings.</p>
+                </div>
+
+                <div class="bg-card border border-theme rounded-3xl p-8 hover-scale">
+                    <div class="text-center mb-6">
+                        <div class="text-4xl font-bold text-theme mb-2">250%</div>
+                        <p class="text-gray-400">ROI Improvement</p>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Restaurant Chain</h3>
+                    <p class="text-gray-300">Digital marketing campaign for a restaurant chain in Islamabad resulted in
+                        250% ROI improvement and 40% increase in online orders.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Call to Action Section -->
+    <section class="section-padding">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to <span class="text-theme">Get Started?</span></h2>
+            <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+                Don't let your competitors get ahead. Start your digital transformation journey today and watch your
+                business grow online.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="https://wa.me/923311467682" class="cta-button text-xl px-12 py-4">
+                    <i class="fab fa-whatsapp mr-2"></i>WhatsApp Now
+                </a>
+                <a href="tel:+923311467682"
+                    class="border-2 border-theme text-theme px-12 py-4 rounded-full font-semibold text-xl hover:bg-theme hover:text-white transition-all duration-300">
+                    <i class="fas fa-phone mr-2"></i>Call Now
+                </a>
+            </div>
+            <div class="mt-8 text-center">
+                <p class="text-gray-400 mb-4">🚀 Free consultation available 24/7</p>
+                <p class="text-gray-400">📞 +92 331 1467682 | 📧 kaleemify@gmail.com</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="assets/Logo.webp" alt="Kaleemify Logo" class="h-8 w-auto mr-2">
+                        <span class="text-xl font-bold text-theme">Kaleemify</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Pakistan's leading digital agency specializing in website development,
+                        digital marketing, and innovative solutions.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-theme"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-theme"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-theme"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-theme"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-theme">Website Development</a></li>
+                        <li><a href="#" class="hover:text-theme">Digital Marketing</a></li>
+                        <li><a href="#" class="hover:text-theme">SEO Services</a></li>
+                        <li><a href="#" class="hover:text-theme">E-commerce Development</a></li>
+                        <li><a href="#" class="hover:text-theme">Mobile App Development</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-theme">Home</a></li>
+                        <li><a href="#services" class="hover:text-theme">Services</a></li>
+                        <li><a href="#portfolio" class="hover:text-theme">Portfolio</a></li>
+                        <li><a href="#pricing" class="hover:text-theme">Pricing</a></li>
+                        <li><a href="#contact" class="hover:text-theme">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-phone mr-2 text-theme"></i>+92 331 1467682</li>
+                        <li><i class="fas fa-envelope mr-2 text-theme"></i>kaleemify@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt mr-2 text-theme"></i>Pakistan</li>
+                        <li><i class="fas fa-clock mr-2 text-theme"></i>24/7 Available</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">© 2025 Kaleemify. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // FAQ toggle
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const icon = question.querySelector('i');
+
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                // Close all other FAQ items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        const otherIcon = otherItem.querySelector('.faq-question i');
+                        otherIcon.style.transform = 'rotate(0deg)';
+                    }
+                });
+
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove('active');
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    item.classList.add('active');
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const name = formData.get('name') || document.querySelector('input[placeholder="Your Name"]').value;
+            const email = formData.get('email') || document.querySelector('input[placeholder="your@email.com"]').value;
+            const phone = formData.get('phone') || document.querySelector('input[placeholder="+92 300 0000000"]').value;
+            const service = document.querySelector('select').value;
+            const message = document.querySelector('textarea').value;
+
+            const whatsappMessage = `Hi Kaleemify! I'm interested in your services.
+            
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Service: ${service}
+Message: ${message}`;
+
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            window.open(`https://wa.me/923311467682?text=${encodedMessage}`, '_blank');
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Counter animation
+        const counters = document.querySelectorAll('.stats-counter');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const count = target.getAttribute('data-count');
+                    if (count) {
+                        let current = 0;
+                        const increment = count / 100;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= count) {
+                                current = count;
+                                clearInterval(timer);
+                            }
+                            target.textContent = Math.floor(current) + (count.includes('+') ? '+' : '');
+                        }, 20);
+                    }
+                    counterObserver.unobserve(target);
+                }
+            });
+        });
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+    </script>
 </body>
+
 </html>
